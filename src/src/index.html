@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edge</title>
-
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -24,26 +23,73 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      body { background-image: url('./img/web.jpg'); background-repeat: no-repeat; background-size: 100%; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 10px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #047b33; font-weight: bold; font-size: 16px; margin: 0 0 15px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 13px;}
+      .ml13 {
+        font-size: 1.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        font-weight: 600;
+      }
+      .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+      }
+      #message p { line-height: 140%; margin: 13px 0 24px; font-size: 14px; }
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      #sign-in_button { border: none; padding: 6px; width: 130px;}
+      #register { border: none; background-color: none; color: blue}
+      footer {display: flex; justify-content: end; margin-top: 700px;}
+      footer a { padding: 25px; }
+      footer img { max-width: 50px;}
+      /* MOBILE */
       @media (max-width: 600px) {
         body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+        body { border-top: 16px solid #01461b; }
       }
     </style>
   </head>
   <body>
-    <div id="message">
-      <h2>This edge of the Net</h2>
-      <h1>Welcome,</h1>
-      <p>There's no place like 127.0.0.1</p>
-      <button>Sign in</button>
-    </div>
+      <div id="message">
+        <h2 class="ml13">Edge of the Net . DEV</h2>
+        <h1 class="ellipse-anim">Welcome,</h1>
+        <p>There is no place like 127.0.0.1</p>
+        <button id="sign-in_button">LOGIN</button>
+      </div>
+      <footer>
+        <a href="https://www.github.com/NightlyD3V"><img src="./img/github-mark.svg"/></a>
+      </footer>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script>
+    // Wait for dom to load...
+    document.body.onload = () => {
+      const ellipse = document.querySelector(".ellipse-anim")
+      console.log(ellipse.innerHTML)
+      var textWrapper = document.querySelector('.ml13');
+      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+      anime.timeline({loop: true})
+        .add({
+          targets: '.ml13 .letter',
+          translateY: [100,0],
+          translateZ: 0,
+          opacity: [0,1],
+          easing: "easeOutExpo",
+          duration: 1200,
+          delay: (el, i) => 300 + 30 * i
+        }).add({
+          targets: '.ml13 .letter',
+          translateY: [0,-100],
+          opacity: [1,0],
+          easing: "easeInExpo",
+          duration: 1200,
+          delay: (el, i) => 100 + 30 * i
+        });
+    }
+  </script>
 </html>
