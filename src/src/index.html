@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edge</title>
+    <title>EDGE</title>
     <!-- flavicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="./img/flavicon_io/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="./img/flavicon_io/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" type="image/png" href="./img/favicon_io/apple-touch-icon.png" sizes="180x180" >
+    <link rel="icon" type="image/png" href="./img/favicon_io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./img/favicon_io/favicon-16x16.png" sizes="16x16">
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -27,44 +27,65 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <style media="screen">
-      body { background-image: url('./img/web.jpg'); background-repeat: no-repeat; background-size: 100%; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 250px auto 10px; padding: 32px 24px; border-radius: 3px; }
+      body { background-image: url('./img/web.jpg'); background-repeat: no-repeat; background-size: 100%; background-color:rgb(9, 19, 12) ; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 125px auto 10px; padding: 32px 24px; border-radius: 3px; }
       #message h2 { color: #047b33; font-weight: bold; font-size: 16px; margin: 0 0 15px; }
       #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 13px;}
       .ml13 {
         font-size: 1.9em;
         text-transform: uppercase;
-        letter-spacing: 0.5em;
+        letter-spacing: 0.3em;
         font-weight: 600;
+        overflow: hidden;
       }
       .ml13 .letter {
         display: inline-block;
         line-height: 1em;
       }
-      #message p { line-height: 140%; margin: 13px 0 12px; font-size: 14px; }
+      #message p { line-height: 140%; margin: 12px 0 12px; font-size: 14px; }
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      #sign-in_button { border: none; padding: 6px; width: 130px;}
+      #sign-in_button { border: none; padding: 6px; width: 130px; } 
       #register { border: none; background-color: none; color: blue}
-      footer {position: fixed; bottom: 25px; right: 0px; }
-      footer a { padding: 25px; }
-      footer img { max-width: 50px;}
+      footer {position: absolute; bottom: 0px; right: 0px; background-color: whitesmoke; border-radius: 3px;}
+      footer img { max-width: 50px; padding: 25px; }
+      /* ANIMATION */
+      footer { transition: transform 250ms; }
+      footer:hover { transform: translateX(-5px) scaleX(1.1);}
+      .animate {
+        animation: fade-in 1s both;
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
       /* MOBILE */
       @media (max-width: 600px) {
         body { margin: 0 auto; }
         body, #message { margin-top: 25px; box-shadow: none; max-width: 85%; }
+        
       }
     </style>
   </head>
   <body>
-      <div id="message">
+      <div id="message" class="animate">
         <h2 class="ml13">Edge of the Net . dev</h2>
-        <h1>Welcome,</h1>
-        <p>Open source and free as in freedom forever, no really!</p>
-        <p>Why?...simple, I'm a tinkerer just like you.</p>
-        <p>Long live 127.0.0.1</p>
+        <h1>@localhost,</h1>
+        <p>Our mission is simple, strive to give students all around the world the <b>best</b> chance at succeeding.</p>
+           <p>Technology is being emebded into the things we interact with every day and the 
+           rate of advancement is exponential.</p>
+          <p>Most school systems are failing to keep pace. Heck, governments are struggling to make new laws fast enough.</p>
+          <p><b>How do you keep up?</b></p>
         <button id="sign-in_button">LOGIN</button>
+        <h1>Authenticated!</h1>
+        <h1>Error...</h1>
       </div>
       <footer>
         <a href="https://www.github.com/NightlyD3V"><img src="./img/github-mark.svg"/></a>
