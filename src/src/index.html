@@ -103,7 +103,11 @@
         appId: "1:678696719887:web:f46f96c7060cc50f4b757a",
         measurementId: "G-SSTLEHS1Z4"
       };
-      const app = firebase.initializeApp(fireConfig)
+      if (!firebase.apps.length) {
+        const app = firebase.initializeApp(fireConfig)
+      } else {
+        firebase.app(); // if already initialized, use that one
+      }
       let db = firebase.firestore()
       const signin_button = document.querySelector("#sign-in_button")
       signin_button.addEventListener("click", () => {
