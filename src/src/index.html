@@ -25,7 +25,6 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
     <style media="screen">
       body { background-image: url('./img/web.jpg'); background-repeat: no-repeat; background-size: 100%; background-color:rgb(9, 19, 12) ; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 125px auto 10px; padding: 32px 24px; border-radius: 3px; }
@@ -46,13 +45,15 @@
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      #sign-in_button { border: none; padding: 6px; width: 130px; } 
+      #sign-in_button { border: none; padding: 6px; width: 130px; margin-bottom: 10px; } 
       #register { border: none; background-color: none; color: blue}
+      #success-msg { display: none;}
+      #error-msg { display: none;}
       footer {position: absolute; bottom: 0px; right: 0px; background-color: whitesmoke; border-radius: 3px;}
-      footer img { max-width: 50px; padding: 25px; }
+      footer img { max-width: 25px; padding: 25px; }
       /* ANIMATION */
       footer { transition: transform 250ms; }
-      footer:hover { transform: translateX(-5px) scaleX(1.1);}
+      footer:hover { transform: translateX(-5px) translateY(-5px);}
       .animate {
         animation: fade-in 1s both;
       }
@@ -70,25 +71,21 @@
       @media (max-width: 600px) {
         body { margin: 0 auto; }
         body, #message { margin-top: 25px; box-shadow: none; max-width: 85%; }
-        
       }
     </style>
   </head>
   <body>
       <div id="message" class="animate">
         <h2 class="ml13">Edge of the Net . dev</h2>
-        <h1>@localhost,</h1>
-        <p>Our mission is simple, strive to give students all around the world the <b>best</b> chance at succeeding.</p>
-           <p>Technology is being emebded into the things we interact with every day and the 
-           rate of advancement is exponential.</p>
-          <p>Most school systems are failing to keep pace. Heck, governments are struggling to make new laws fast enough.</p>
-          <p><b>How do you keep up?</b></p>
+        <h1>@localhost...</h1>
+        <p>We are developing responsive web based games using the latest technologies!</p>
+        <p>~ There's no place like 127.0.0.1</p>
         <button id="sign-in_button">LOGIN</button>
-        <h1>Authenticated!</h1>
-        <h1>Error...</h1>
+        <h1 id="success-msg">Success !</h1>
+        <h1 id="error-msg">Error... Please try again.</h1>
       </div>
       <footer>
-        <a href="https://www.github.com/NightlyD3V"><img src="./img/github-mark.svg"/></a>
+        <a href="https://www.github.com/NightlyD3V/edgeofthenet"><img src="./img/github-mark.svg"/></a>
       </footer>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -110,14 +107,23 @@
       let db = firebase.firestore()
       const signin_button = document.querySelector("#sign-in_button")
       signin_button.addEventListener("click", () => {
+        const success_msg = document.querySelector("#success-msg")
+        const error_msg = document.querySelector("#error-msg")
+        error_msg.style.display = "none"
+        success_msg.style.display = "none"
         const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithPopup(provider)
           .then( res => {
             const user = res.user
+            success_msg.style.display = "block"
             console.log(user)
+            setTimeout(() => {
+              window.location.href = "./app/app.html";
+            }, 1000)
           })
           .catch( err => {
             console.log(err)
+            error_msg.style.display = "block"
           })
       })
       var textWrapper = document.querySelector('.ml13');

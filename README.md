@@ -1,2 +1,2 @@
 # edgeofthenet
-A personal site
+We are developing responsive web based games using the latest technologies!
