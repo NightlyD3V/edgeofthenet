@@ -8,7 +8,7 @@ class Clock extends HTMLElement {
             <style>
                 .clock {
                     font-family: 'Roboto', sans-serif;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                 }
             </style>
             <div class="clock">
@@ -26,9 +26,6 @@ class Clock extends HTMLElement {
         let h = date.getHours()
         let m = date.getMinutes()
         let s = date.getSeconds()
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
         switch(d){
             case 0: d = "Sun"; break
             case 1: d = "Mon"; break   
@@ -38,6 +35,9 @@ class Clock extends HTMLElement {
             case 5: d = "Fri"; break
             case 6: d = "Sat"; break
         }
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
         if(h == 0){
             h = 12;
         }

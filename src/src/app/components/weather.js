@@ -8,7 +8,7 @@ class Weather extends HTMLElement {
             <style>
                 .weather {
                     font-family: 'Roboto', sans-serif;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                 }
             </style>
             <div class="weather">
@@ -17,7 +17,7 @@ class Weather extends HTMLElement {
         `
         this.temp = this.querySelector('.weather__temp')
         this.updateWeather()
-        setInterval(() => this.updateWeather(), 10000)    
+        // setInterval(() => this.updateWeather(), 10000)    
     }
 
     updateWeather() {

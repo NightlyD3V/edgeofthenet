@@ -4,20 +4,22 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Interface</title>
-        <link rel="stylesheet" href="../app/scss/app.css">
-        <!-- flavicon -->
-        <link rel="apple-touch-icon" type="image/png" href="./img/favicon_io/apple-touch-icon.png" sizes="180x180" >
+        <link rel="stylesheet" href="./scss/app.css">
         <!--DEFER LOAD COMPONENTS -->
         <script src="../app/components/clock.js" type="text/javascript" defer></script>
         <script src="../app/components/weather.js" type="text/javascript" defer></script>
+        <script src="../app/components/canvas.js" type="text/javascript" defer></script>
     </head>
     <body>
         <div id="app">
+            <canvas id="canvas"></canvas>
             <div id="ui_container">
                 <div id="metrics">
-                    <clock-component></clock-component>
-                    <weather-component></weather-component>
+                    <clock-component id="clock"></clock-component>
+                    <weather-component id="weather"></weather-component>
                 </div>
+                <div class="items"></div>
+                
             </div>
         </div>    
     </body>

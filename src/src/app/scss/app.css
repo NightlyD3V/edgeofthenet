@@ -1,8 +1,43 @@
 body {
   background-color: cornflowerblue;
+  padding: 0px;
+  margin: 0px;
 }
-body #metrics {
-  color: whitesmoke;
+body #ui_container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0.509);
+  backdrop-filter: blur(2px);
+  padding: 25px;
+  border-radius: 3px;
+  display: flex;
+  width: 100%;
+  max-height: 25px;
+  align-items: center;
+  justify-content: center;
+}
+body #ui_container #metrics {
+  width: 50%;
+  color: black;
+}
+body #ui_container #metrics #clock {
+  margin-right: 10px;
+}
+body #ui_container .items {
+  background-color: rgb(53, 77, 119);
+  border-radius: 90%;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+body #canvas {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 /*# sourceMappingURL=app.css.map */
