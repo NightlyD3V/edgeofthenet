@@ -4,7 +4,9 @@
   "description": "firebase hosted website",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev-server": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,12 @@
   },
   "homepage": "https://github.com/nightlyd3v/edgeofthenet#readme",
   "dependencies": {
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "three": "^0.152.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
   }
 }

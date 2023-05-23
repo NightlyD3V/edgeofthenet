@@ -8,10 +8,10 @@ const setUpCanvas = () => {
         c.height = c.clientHeight;
     })
     // Define the rainfall parameters
-    const dropCount = 100; // Number of raindrops
-    const speedRange = { min: 1, max: 3 }; // Speed range for raindrops
-    const lengthRange = { min: 10, max: 30 }; // Length range for raindrops
-    const color = "#00FF00"; // Raindrop color
+    const dropCount = 100; 
+    const speedRange = { min: 1, max: 3 }
+    const lengthRange = { min: 10, max: 30 }
+    const color = "#00FF00"
 
     // Initialize the raindrops
     let raindrops = [];
@@ -25,23 +25,22 @@ const setUpCanvas = () => {
     }
 
     function drawRaindrop(raindrop) {
-      ctx.beginPath();
-      ctx.moveTo(raindrop.x, raindrop.y);
-      ctx.lineTo(raindrop.x, raindrop.y + raindrop.length);
-      ctx.strokeStyle = color;
+      ctx.beginPath()
+      ctx.moveTo(raindrop.x, raindrop.y)
+      ctx.lineTo(raindrop.x, raindrop.y + raindrop.length)
+      ctx.strokeStyle = color
       ctx.lineWidth = 2;
-      ctx.stroke();
+      ctx.stroke()
     }
-
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+      ctx.clearRect(0, 0, c.width, c.height);
+
       for (let i = 0; i < dropCount; i++) {
         const raindrop = raindrops[i];
 
         raindrop.y += raindrop.speed;
 
-        if (raindrop.y > canvas.height) {
+        if (raindrop.y > c.height) {
           raindrop.y = 0;
         }
 

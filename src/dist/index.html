@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EDGE</title>
+    <!-- flavicon -->
+    <link rel="apple-touch-icon" type="image/png" href="./img/favicon_io/apple-touch-icon.png" sizes="180x180" >
+    <link rel="icon" type="image/png" href="./img/favicon_io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./img/favicon_io/favicon-16x16.png" sizes="16x16">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.21.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.21.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <style media="screen">
+      body { background-image: url('./img/web.jpg'); background-repeat: no-repeat; background-size: 100%; background-color:rgb(9, 19, 12) ; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 125px auto 10px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #047b33; font-weight: bold; font-size: 16px; margin: 0 0 15px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 13px;}
+      .ml13 {
+        font-size: 1.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-weight: 600;
+        overflow: hidden;
+      }
+      .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+      }
+      #message p { line-height: 140%; margin: 12px 0 12px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      #sign-in_button { border: none; padding: 6px; width: 130px; margin-bottom: 10px; } 
+      #register { border: none; background-color: none; color: blue}
+      #success-msg { display: none;}
+      #error-msg { display: none;}
+      footer {position: absolute; bottom: 0px; right: 0px; background-color: whitesmoke; border-radius: 3px;}
+      footer img { max-width: 25px; padding: 25px; }
+      /* ANIMATION */
+      footer { transition: transform 250ms; }
+      footer:hover { transform: translateX(-5px) translateY(-5px);}
+      .animate {
+        animation: fade-in 1s both;
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      /* MOBILE */
+      @media (max-width: 600px) {
+        body { margin: 0 auto; }
+        body, #message { margin-top: 25px; box-shadow: none; max-width: 85%; }
+        #message h2 { font-size: 12px}
+      }
+    </style>
+  </head>
+  <body>
+      <div id="message" class="animate">
+        <h2 class="ml13">Edge of the Net . dev</h2>
+        <h1>@localhost...</h1>
+        <p>We are developing responsive web based games using the latest technologies!</p>
+        <p>~ There's no place like 127.0.0.1</p>
+        <button id="sign-in_button">LOGIN</button>
+        <h1 id="success-msg">Success !</h1>
+        <h1 id="error-msg">Error... Please try again.</h1>
+      </div>
+      <footer>
+        <a href="https://www.github.com/NightlyD3V/edgeofthenet"><img src="./img/github-mark.svg"/></a>
+      </footer>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+    // Wait for dom to load...
+    document.body.onload = () => {
+      // INIT 
+      const fireConfig = {
+        apiKey: "AIzaSyDUW27FhmM-aAnnzs0cVRYIWHaSOmfTbJ8",
+        authDomain: "edgeofthenet-b19d1.firebaseapp.com",
+        projectId: "edgeofthenet-b19d1",
+        storageBucket: "edgeofthenet-b19d1.appspot.com",
+        messagingSenderId: "678696719887",
+        appId: "1:678696719887:web:f46f96c7060cc50f4b757a",
+        measurementId: "G-SSTLEHS1Z4"
+      };
+      if (!firebase.apps.length) {
+        const app = firebase.initializeApp(fireConfig)
+      } else {
+        firebase.app(); // if already initialized, use that one
+      }
+      let db = firebase.firestore()
+      const signin_button = document.querySelector("#sign-in_button")
+      signin_button.addEventListener("click", () => {
+        const success_msg = document.querySelector("#success-msg")
+        const error_msg = document.querySelector("#error-msg")
+        error_msg.style.display = "none"
+        success_msg.style.display = "none"
+        const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(provider)
+          .then( res => {
+            const user = res.user
+            success_msg.style.display = "block"
+            console.log(user)
+            setTimeout(() => {
+              window.location.href = "./app/app.html";
+            }, 1000)
+          })
+          .catch( err => {
+            console.log(err)
+            error_msg.style.display = "block"
+          })
+      })
+      var textWrapper = document.querySelector('.ml13');
+      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+      anime.timeline({loop: true})
+        .add({
+          targets: '.ml13 .letter',
+          translateY: [100,0],
+          translateZ: 0,
+          opacity: [0,1],
+          easing: "easeOutExpo",
+          duration: 1200,
+          delay: (el, i) => 300 + 30 * i
+        }).add({
+          targets: '.ml13 .letter',
+          translateY: [0,-100],
+          opacity: [1,0],
+          easing: "easeInExpo",
+          duration: 1200,
+          delay: (el, i) => 100 + 30 * i
+        });
+    }
+  </script>
+</html>

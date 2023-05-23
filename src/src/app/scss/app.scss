@@ -2,12 +2,13 @@ body {
     background-color: cornflowerblue;
     padding: 0px;
     margin: 0px;
-
+    font-family: 'Roboto', sans-serif;
+    
     #ui_container {
         position: absolute; 
         left: 0px;
         top: 0px;
-        background-color: rgba(255, 255, 255, 0.509); 
+        background-color: rgba(255, 255, 255, 0.697); 
         backdrop-filter: blur(2px);
         padding: 25px;
         border-radius: 3px;
@@ -15,18 +16,14 @@ body {
         width: 100%;
         max-height: 25px;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
 
         #metrics {
             width: 50%;
             color: black;
-          
-            #clock {
-                margin-right: 10px;
-            }
         }
 
-        .items {
+        #user {
             background-color: rgb(53, 77, 119);
             border-radius: 90%;
             width: 50px;
@@ -41,5 +38,17 @@ body {
         position: fixed;
         left: 0;
         top: 0;
+    }
+    #games {
+        margin: 100px;
+        
+        .game {
+            margin-bottom: 25px;
+            background-color: rgba(255, 255, 255, 0.435); 
+            backdrop-filter: blur(3px);
+            border-radius: 3px;
+            padding: 25px;
+            max-width: 150px;
+        }
     }
 }

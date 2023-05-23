@@ -26,6 +26,7 @@ class Clock extends HTMLElement {
         let h = date.getHours()
         let m = date.getMinutes()
         let s = date.getSeconds()
+        let ampm = h >= 12 ? 'PM' : 'AM';
         switch(d){
             case 0: d = "Sun"; break
             case 1: d = "Mon"; break   
@@ -38,10 +39,10 @@ class Clock extends HTMLElement {
         h = (h < 10) ? "0" + h : h;
         m = (m < 10) ? "0" + m : m;
         s = (s < 10) ? "0" + s : s;
-        if(h == 0){
-            h = 12;
-        }
-        this.time.innerHTML = `${d} ${h}:${m}:${s}`
+        // if(h == 0) {
+        //     h = 12;
+        // }
+        this.time.innerHTML = `${d} ${h}:${m}:${s} ${ampm}`
     }
 }
 
