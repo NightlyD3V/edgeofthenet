@@ -8,7 +8,7 @@ const setUpCanvas = () => {
         c.height = c.clientHeight;
     })
     // Define the rainfall parameters
-    const dropCount = 100; 
+    const dropCount = 50; 
     const speedRange = { min: 1, max: 3 }
     const lengthRange = { min: 10, max: 30 }
     const color = "#00FF00"
