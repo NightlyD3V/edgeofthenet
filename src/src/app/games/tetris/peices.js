@@ -1,9 +1,10 @@
 class Peices {
     constructor(height, width, color) { 
         this.height = height
-        this.width = width  
+        this.width = width   
+        this.color = color
     }
-    draw() {
-        
-    }
+    
 }
+
+export default Peices
