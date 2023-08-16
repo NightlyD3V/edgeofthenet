@@ -26,9 +26,14 @@ body {
         #user {
             background-color: rgb(53, 77, 119);
             border-radius: 90%;
-            width: 50px;
-            height: 50px;
+            max-width: 50px;
+            max-height: 50px;
             margin: 10px;
+        }
+        #user_photo {
+            border-radius: 90%;
+            max-width: 50px;
+            max-height: 50px;
         }
     }
     #canvas {

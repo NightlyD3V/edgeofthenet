@@ -10,6 +10,7 @@
         <script src="../app/components/weather.js" type="text/javascript" defer></script>
         <script src="../app/components/canvas.js" type="text/javascript" defer></script>
         <script src="../app/components/messages.js" type="text/javascript" defer></script>
+        <script src ="components/userData.js" type="text/javascript" defer></script>
     </head>
     <body>
         <div id="app">
@@ -19,7 +20,9 @@
                     <clock-component id="clock"></clock-component>
                     <weather-component id="weather"></weather-component>
                 </div>
-                <div id="user"></div>
+                <div id="user">
+                    <img id="user_photo" src=""/>
+                </div>
             </div>
             <messages-component id="messages"></messages-component>
         </div>    
