@@ -65,10 +65,6 @@ class Messages extends HTMLElement {
                 } 
             })
         })
-        // Need to instance another message div 
-        // message.Messages.map((e) => {this.messages.innerHTML = Object.values(e)})
-        // message.Messages.map((e) => console.log(e))
-        // console.log(message)
     }
     async sendData(data) {
         const res = await fetch('https://eager-mewing-fairy.glitch.me/messages', {

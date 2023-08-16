@@ -37,16 +37,13 @@ const setUpCanvas = () => {
 
       for (let i = 0; i < dropCount; i++) {
         const raindrop = raindrops[i];
-
         raindrop.y += raindrop.speed;
 
         if (raindrop.y > c.height) {
           raindrop.y = 0;
         }
-
         drawRaindrop(raindrop);
       }
-
       requestAnimationFrame(animate);
     }
 
